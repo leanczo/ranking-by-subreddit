@@ -105,13 +105,13 @@ for submission in new_python:
     except UnicodeEncodeError:
         print('Unicode Encode Error')
 i=0 
-print('Posts; Upvotes; Downvotes; Quantity')
+print('Posts; Karma Total; Downvotes Posts; Quantity Posts')
 for i in range(0, len(ArrayPost), 4):
     print(str(ArrayPost[i]), ';', str(ArrayPost[i+1]), ';', str(ArrayPost[i+2]), ';', str(ArrayPost[i+3]))
 print()
 
 i=0
-print('Comments; Upvotes; Quantity')
+print('Comments; Karma; Quantity Comments')
 for i in range(0, len(ArrayCommnent), 3):
     print(str(ArrayCommnent[i]), ';', str(ArrayCommnent[i+1]), ';', str(ArrayCommnent[i+2]))
 print()
