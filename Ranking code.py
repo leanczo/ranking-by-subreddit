@@ -1,5 +1,6 @@
 import praw
 import sys
+import xlsxwriter 
 from time import time
 
 reddit = praw.Reddit(client_id='XXXXXXXXX',
@@ -121,6 +122,45 @@ print('Flairs; Quantity')
 for i in range(0, len(ArrayFlair), 2):
     print(str(ArrayFlair[i].translate(non_bmp_map)), ';', str(ArrayFlair[i+1]))
 print()
+
+workbook = xlsxwriter.Workbook('Posts.xlsx') 
+worksheet = workbook.add_worksheet() 
+row = 0
+column = 0
+
+for item in ArrayPost: 
+    worksheet.write(row, column, item)
+    column += 1
+    if (column  % 4) == 0:
+        column = 0
+        row += 1
+workbook.close() 
+
+workbook = xlsxwriter.Workbook('Comments.xlsx') 
+worksheet = workbook.add_worksheet() 
+row = 0
+column = 0
+
+for item in ArrayCommnent: 
+    worksheet.write(row, column, item)
+    column += 1
+    if (column  % 3) == 0:
+        column = 0
+        row += 1
+workbook.close()
+
+workbook = xlsxwriter.Workbook('Flairs.xlsx') 
+worksheet = workbook.add_worksheet() 
+row = 0
+column = 0
+
+for item in ArrayFlair: 
+    worksheet.write(row, column, item)
+    column += 1
+    if (column  % 2) == 0:
+        column = 0
+        row += 1
+workbook.close()
 
 try:
     print('Total Post Upvotes: '+str(TotalPostUpvotes))
