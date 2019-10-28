@@ -168,6 +168,7 @@ row = 0
 column = 0
 
 worksheet.write(row, column, "Statistics")
+worksheet.write(row, column+1, "Quantity")
 worksheet.write(row+1, column, "Total Post Upvotes")
 worksheet.write(row+1, column+1, TotalPostUpvotes)
 worksheet.write(row+2, column, "Total Post Downvotes")
