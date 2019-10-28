@@ -105,23 +105,6 @@ for submission in new_python:
                     i+=3          
     except UnicodeEncodeError:
         print('Unicode Encode Error')
-i=0 
-print('Posts; Karma Total; Downvotes Posts; Quantity Posts')
-for i in range(0, len(ArrayPost), 4):
-    print(str(ArrayPost[i]), ';', str(ArrayPost[i+1]), ';', str(ArrayPost[i+2]), ';', str(ArrayPost[i+3]))
-print()
-
-i=0
-print('Comments; Karma; Quantity Comments')
-for i in range(0, len(ArrayCommnent), 3):
-    print(str(ArrayCommnent[i]), ';', str(ArrayCommnent[i+1]), ';', str(ArrayCommnent[i+2]))
-print()
-
-i=0
-print('Flairs; Quantity')
-for i in range(0, len(ArrayFlair), 2):
-    print(str(ArrayFlair[i].translate(non_bmp_map)), ';', str(ArrayFlair[i+1]))
-print()
 
 workbook = xlsxwriter.Workbook('Posts.xlsx') 
 worksheet = workbook.add_worksheet() 
@@ -220,28 +203,6 @@ worksheet.write(row+16, column+1, BestCommentPost.translate(non_bmp_map))
 
 workbook.close()
 
-try:
-    print('Total Post Upvotes: '+str(TotalPostUpvotes))
-    print('Total Post Downvotes: '+str(TotalPostDownvotes))
-    print('Total Post Average Upvotes: '+str((round(TotalPostUpvotes/PostQuantity,2))))
-    print('Total Post Average Downvotes: '+str((round(TotalPostDownvotes/PostQuantity,2))))
-    print('Comment Quantity: '+str(CommentQuantity))
-    print('Post Quantity: '+str(PostQuantity))
-    print('Total Comment Upvotes: '+str(TotalCommentUpvotes))
-    print('Average Upvotes Comment: '+str((round(TotalCommentUpvotes/PostQuantity,2))))
-    print()
-    print('The worst comment is:')
-    print(WorstComment.translate(non_bmp_map))
-    print()
-    print('With '+str(WorstCommentUpvote)+' upvotes of the author: '+WorstAuthor+' of the post: '+WorstCommentPost.translate(non_bmp_map))
-    print()
-    print('The best comment is: ')
-    print(BestComment.translate(non_bmp_map))
-    print()
-    print('With '+str(BestCommentUpvote)+' upvotes of the author: '+BestAuthor+' of the post: '+BestCommentPost.translate(non_bmp_map))
-    print()
-    FinalTime = time() 
-    ExecutionTime = FinalTime  - InitialTime
-    print ('Execution Time:',round(ExecutionTime ,2),'seconds ó',round(ExecutionTime/60,2),'minutes') 
-except UnicodeEncodeError:
-    print('Unicode Encode Error')
+FinalTime = time() 
+ExecutionTime = FinalTime  - InitialTime
+print ('Execution Time:',round(ExecutionTime ,2),'seconds ó',round(ExecutionTime/60,2),'minutes') 
