@@ -201,7 +201,6 @@ worksheet.write(row+15, column, "upvotes of the author")
 worksheet.write(row+15, column+1, BestAuthor)
 worksheet.write(row+16, column, "of the post")
 worksheet.write(row+16, column+1, BestCommentPost.translate(non_bmp_map))
-
 workbook.close()
 
 FinalTime = time() 
