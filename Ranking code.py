@@ -204,7 +204,7 @@ def GenerateDocuments():
     worksheet.write(row+16, column+1, BestCommentPost.translate(non_bmp_map))
     workbook.close()
 
-GenerateDocs()
+GenerateDocuments()
 FinalTime = time() 
 ExecutionTime = FinalTime  - InitialTime
 print ('Execution Time:',round(ExecutionTime ,2),'seconds ó',round(ExecutionTime/60,2),'minutes') 
