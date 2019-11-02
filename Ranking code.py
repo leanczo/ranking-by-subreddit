@@ -107,6 +107,12 @@ for submission in new_python:
         print('Unicode Encode Error')
 
 def GenerateDocuments():
+    GeneratePostDocument()
+    GenerateCommentDocument()
+    GenerateFlairDocument()
+    GenerateStatisticDocument()
+    
+def GeneratePostDocument():
     workbook = xlsxwriter.Workbook('Posts.xlsx') 
     worksheet = workbook.add_worksheet() 
     row = 0
@@ -124,8 +130,9 @@ def GenerateDocuments():
         if (column% 4) == 0:
             column = 0
             row += 1
-    workbook.close() 
-
+    workbook.close()
+    
+def GenerateCommentDocument():
     workbook = xlsxwriter.Workbook('Comments.xlsx') 
     worksheet = workbook.add_worksheet()
     row = 0
@@ -144,7 +151,8 @@ def GenerateDocuments():
             column = 0
             row += 1
     workbook.close()
-
+    
+def GenerateFlairDocument():
     workbook = xlsxwriter.Workbook('Flairs.xlsx') 
     worksheet = workbook.add_worksheet() 
     row = 0
@@ -162,9 +170,10 @@ def GenerateDocuments():
             column = 0
             row += 1
     workbook.close()
-
+    
+def GenerateStatisticDocument():
     workbook = xlsxwriter.Workbook('Statistics.xlsx') 
-    worksheet = workbook.add_worksheet() 
+    worksheet = workbook.add_worksheet()
     row = 0
     column = 0
 
@@ -203,7 +212,7 @@ def GenerateDocuments():
     worksheet.write(row+16, column, "of the post")
     worksheet.write(row+16, column+1, BestCommentPost.translate(non_bmp_map))
     workbook.close()
-
+    
 GenerateDocuments()
 FinalTime = time() 
 ExecutionTime = FinalTime  - InitialTime
