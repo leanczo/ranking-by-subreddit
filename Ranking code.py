@@ -124,7 +124,7 @@ def GeneratePostDocument():
     worksheet.write(row, column+3, "Quantity Posts")
 
     for item in ArrayPost: 
-        worksheet.write(row+1, column+1, item)
+        worksheet.write(row+1, column, item)
         column += 1
         if (column% 4) == 0:
             column = 0
@@ -142,7 +142,7 @@ def GenerateCommentDocument():
     worksheet.write(row, column+2, "Quantity Comments")
 
     for item in ArrayCommnent: 
-        worksheet.write(row+1, column+1, item)
+        worksheet.write(row+1, column, item)
         column += 1
         if (column  % 3) == 0:
             column = 0
@@ -159,7 +159,7 @@ def GenerateFlairDocument():
     worksheet.write(row, column+1, "Quantity")
 
     for item in ArrayFlair: 
-        worksheet.write(row+1, column+1, item)
+        worksheet.write(row+1, column, item)
         column += 1
         if (column  % 2) == 0:
             column = 0
