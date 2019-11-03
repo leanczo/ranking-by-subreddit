@@ -117,15 +117,14 @@ def GeneratePostDocument():
     worksheet = workbook.add_worksheet() 
     row = 0
     column = 0
-    worksheet.write(row, column, "N°")
-    worksheet.write(row, column+1, "User")
-    worksheet.write(row, column+2, "Upvotes")
-    worksheet.write(row, column+3, "Downvotes Posts")
-    worksheet.write(row, column+4, "Quantity Posts")
+
+    worksheet.write(row, column, "User")
+    worksheet.write(row, column+1, "Upvotes")
+    worksheet.write(row, column+2, "Downvotes Posts")
+    worksheet.write(row, column+3, "Quantity Posts")
 
     for item in ArrayPost: 
         worksheet.write(row+1, column+1, item)
-        worksheet.write(row+1, 0, row+1)
         column += 1
         if (column% 4) == 0:
             column = 0
@@ -138,14 +137,12 @@ def GenerateCommentDocument():
     row = 0
     column = 0
 
-    worksheet.write(row, column, "N°")
-    worksheet.write(row, column+1, "User")
-    worksheet.write(row, column+2, "Upvotes")
-    worksheet.write(row, column+3, "Quantity Comments")
+    worksheet.write(row, column, "User")
+    worksheet.write(row, column+1, "Upvotes")
+    worksheet.write(row, column+2, "Quantity Comments")
 
     for item in ArrayCommnent: 
         worksheet.write(row+1, column+1, item)
-        worksheet.write(row+1, 0, row+1)
         column += 1
         if (column  % 3) == 0:
             column = 0
@@ -158,13 +155,11 @@ def GenerateFlairDocument():
     row = 0
     column = 0
 
-    worksheet.write(row, column, "N°")
-    worksheet.write(row, column+1, "Flairs")
-    worksheet.write(row, column+2, "Quantity")
+    worksheet.write(row, column, "Flairs")
+    worksheet.write(row, column+1, "Quantity")
 
     for item in ArrayFlair: 
         worksheet.write(row+1, column+1, item)
-        worksheet.write(row+1, 0, row+1)
         column += 1
         if (column  % 2) == 0:
             column = 0
