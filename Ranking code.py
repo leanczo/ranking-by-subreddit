@@ -22,6 +22,10 @@ BestCommentUpvote=-99999
 BestComment=''
 BestAuthor=''
 BestCommentPost=''
+BestPost=''
+BestPostUpvote=-99999
+WorstPost=''
+WorstPostUpvote=99999
 PostQuantity=0
 CommentQuantity=0
 TotalPostUpvotes=0
@@ -39,6 +43,14 @@ for submission in new_python:
             TotalPostDownvotes+=downs
             UserPostQuantity=0
             PostQuantity+=1
+
+            if BestPostUpvote<ups:
+                BestPostUpvote = ups
+                BestPost= submission.title
+
+            if WorstPostUpvote>downs:
+                WorstPostUpvote = ups
+                WorstPost= submission.title
 
             if '{}'.format(submission.author) not in ArrayPost:
                 ArrayPost.insert(i,'{}'.format(submission.author))
@@ -206,6 +218,10 @@ def GenerateStatisticDocument():
     worksheet.write(row+15, column+1, BestAuthor)
     worksheet.write(row+16, column, "of the post")
     worksheet.write(row+16, column+1, BestCommentPost.translate(non_bmp_map))
+    worksheet.write(row+17, column, "Best Post")
+    worksheet.write(row+17, column+1, BestPost.translate(non_bmp_map))
+    worksheet.write(row+18, column, "Worst Post")
+    worksheet.write(row+18, column+1, WorstPost.translate(non_bmp_map))
     workbook.close()
     
 GenerateDocuments()
